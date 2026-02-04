@@ -26,7 +26,7 @@ public class Backtracking{
 
     return total;
   }
-      
+
 
 
 
@@ -51,11 +51,38 @@ public class Backtracking{
     return false;
 }
 
+  /*
+  Given an array of ints, is it possible to divide the ints into two groups, so that the sums of the
+  two groups are the same. Every int must be in one group or the other.
+  Write a recursive helper method that takes whatever arguments you like, and make the initial call to your
+  recursive helper from splitArray(). (No loops needed.)
+  */
+  public static boolean splitArray(int[] nums){
+    return splitArrayTwo(nums, 0, 0, 0);
+  }
+
+  public static boolean splitArrayTwo(int[] nums, int index, int sumA, int sumB){
+    if (sumA == sumB){
+      return true;
+
+
+    }
+
+
+
+
+    return false;
+  }
+
+
 
 
   public static void main (String[] args){
     System.out.println(countNoDoubleLetterWords(2, "", "abc"));
     System.out.println(countNoDoubleLetterWords(3, "", "abcdefghijklmnopqrstuvwxyz"));
+    System.out.println(splitArray(new int[]{2,2}));
+    System.out.println(splitArray(new int[]{2,3}));
+    System.out.println(splitArray(new int[]{5,2,3}));
 
 
   }
