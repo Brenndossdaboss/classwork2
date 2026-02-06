@@ -7,7 +7,11 @@ public class Queens{
    * Only the squares below the current row should be marked as threatened.
    */
    private static boolean addQueen(int r, int c, int[][]board){
-
+     if (r > 0){
+       for (int i = r; i < int[][]board.length; i++){
+         
+       }
+     }
    }
 
    /**Remove the queen that was added to r,c
@@ -18,5 +22,8 @@ public class Queens{
    private static void removeQueen(int r, int c, int[][]board){
 
    }
-  
+
+   private static void modifyBoard(int r, int c, int[][]board, int change){
+
+   }
 }
