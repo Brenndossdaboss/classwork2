@@ -106,6 +106,20 @@ public class Backtracking{
     
   }
 
+  public static boolean splitOdd10(int[] nums){
+    return helperOdd10(0, nums, 0, 0);
+  }
+
+  public static boolean helperOdd10(int start, int[] nums, int sum1, int sum2) {
+    if (start >= nums.length) {
+      return sum1 % 10 == 0 && sum2 % 2 != 0;
+    }
+    
+    return helperOdd10(start + 1, nums, sum1 + nums[start], sum2) 
+        || helperOdd10(start + 1, nums, sum1, sum2 + nums[start]);
+  }
+
+
 
   public static void main (String[] args){
     System.out.println(countNoDoubleLetterWords(2, "", "abc"));
