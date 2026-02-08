@@ -98,7 +98,7 @@ public class Backtracking{
         return true;
     }
 
-    if (groupSum(start + 2, nums, target)) {
+    if (groupSum(start + 1, nums, target)) {
         return true;
     }
 
