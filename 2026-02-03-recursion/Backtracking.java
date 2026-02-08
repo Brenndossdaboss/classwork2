@@ -57,24 +57,33 @@ public class Backtracking{
   Write a recursive helper method that takes whatever arguments you like, and make the initial call to your
   recursive helper from splitArray(). (No loops needed.)
   */
-  public static boolean splitArray(int[] nums){
-    return splitArrayTwo(nums, 0, 0, 0);
+
+  public static boolean splitArray(int[] nums) {
+    return helper(0, nums, 0, 0);
   }
 
-  public static boolean splitArrayTwo(int[] nums, int index, int sumA, int sumB){
-    if (sumA == sumB){
-      return true;
-
-
+  public static boolean helper(int start, int[] nums, int sum1, int sum2) {
+    if (start >= nums.length) {
+      return sum1 == sum2;
     }
-
-
-
-
-    return false;
+    
+    return helper(start + 1, nums, sum1 + nums[start], sum2) 
+        || helper(start + 1, nums, sum1, sum2 + nums[start]);
   }
 
+  public static boolean groupSum6(int start, int[] nums, int target) {
+  if (start >= nums.length) {
+    return target == 0;
+  }
+  
 
+  if (nums[start] == 6) {
+    return groupSum6(start + 1, nums, target - 6);
+  }
+
+  return groupSum6(start + 1, nums, target - nums[start]) 
+      || groupSum6(start + 1, nums, target);
+}
 
 
   public static void main (String[] args){
@@ -83,7 +92,9 @@ public class Backtracking{
     System.out.println(splitArray(new int[]{2,2}));
     System.out.println(splitArray(new int[]{2,3}));
     System.out.println(splitArray(new int[]{5,2,3}));
-
+    System.out.println(groupSum(0, new int[]{5,6,2}, 8));
+    System.out.println(groupSum(0, new int[]{5,6,2}, 9));
+    System.out.println(groupSum(0, new int[]{5,6,2}, 7));
 
   }
 }
