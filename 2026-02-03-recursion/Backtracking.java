@@ -155,7 +155,27 @@ public class Backtracking{
     groupSum5(start + 1, nums, target);
   }
 
+  public boolean groupSumClump(int start, int[] nums, int target) {
+  if (start >= nums.length) {
+    return target == 0;
+  }
 
+  int end = start;
+  int clumpSum = 0;
+  while (end < nums.length && nums[end] == nums[start]) {
+    clumpSum += nums[end];
+    end++;
+  }
+
+  if (groupSumClump(end, nums, target - clumpSum)) {
+    return true;
+  }
+  if (groupSumClump(end, nums, target)) {
+    return true;
+  }
+
+  return false;
+}
 
   public static void main (String[] args){
     System.out.println(countNoDoubleLetterWords(2, "", "abc"));
