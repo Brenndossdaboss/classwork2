@@ -119,6 +119,26 @@ public class Backtracking{
         || helperOdd10(start + 1, nums, sum1, sum2 + nums[start]);
   }
 
+  public static boolean split53(int[] nums) {
+    return helper53(0, nums, 0, 0);
+  }
+
+  public static boolean helper53(int start, int[] nums, int sum1, int sum2) {
+    if (start >= nums.length) {
+      return sum1 == sum2;
+    }
+    int value = nums[start];
+
+    if (value % 5 == 0){
+      return helper53(start + 1, nums, sum1 + value, sum2);
+    }
+    if (value % 3 == 0){
+      return helper53(start + 1, nums, sum1, sum2 + value);
+    }
+    return helper53(start + 1, nums, sum1+value, sum2)||
+    helper53(start + 1, nums, sum1, sum2 + value);
+  }
+
 
 
   public static void main (String[] args){
