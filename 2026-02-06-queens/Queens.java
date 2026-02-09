@@ -25,11 +25,11 @@ public class Queens{
    }
 
    private static void modifyBoard(int r, int c, int[][]board, int change){
-     if (change == -1){
-       board[r][c] = 0;
-       for (int i = 0; i < c - board.length; i++){
-         board[r][c + i] += 1;
-       }
+     board[r][c] -= change;
+     for (int i = 0; i < c - board.length; i++){
+         board[r][c + i] -= change;
      }
+
+
    }
 }
