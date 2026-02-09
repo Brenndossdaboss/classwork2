@@ -8,10 +8,11 @@ public class Queens{
    */
    private static boolean addQueen(int r, int c, int[][]board){
      if (r > 0){
-       for (int i = r; i < int[][]board.length; i++){
-         
+       for (int i = r; i < board.length; i++){
+
        }
      }
+     return true;
    }
 
    /**Remove the queen that was added to r,c
@@ -24,6 +25,11 @@ public class Queens{
    }
 
    private static void modifyBoard(int r, int c, int[][]board, int change){
-
+     if (change == -1){
+       board[r][c] = 0;
+       for (int i = 0; i < c - board.length; i++){
+         board[r][c + i] += 1;
+       }
+     }
    }
 }
