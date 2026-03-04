@@ -50,6 +50,8 @@ public class Preliminary {
       }
     }
     swap(data, lo, right);
+    System.out.println(pivot);
+    System.out.println(Arrays.toString(data));
     return right;
   }
 
@@ -57,5 +59,14 @@ public class Preliminary {
     int temp = data[i];
     data[i] = data[j];
     data[j] = temp;
+  }
+
+  public static void main (String[] args){
+    int[] ary1 = new int[]{9, 8, 7, 6, 5, 4, 3, 2, 1};
+    int[] ary2 = new int[]{990, 991, 992, 993, 994, 8, 7, 6, 5, 4, 3, 2, 1, 0, 995, 996, 997};
+    System.out.println(partition(ary1, 0, ary1.length - 1));
+    System.out.println(partition(ary2, 0, ary2.length - 1));
+
+
   }
 }
