@@ -21,7 +21,7 @@ public class Preliminary {
   public static int partition(int[] data, int lo, int hi) {
     Random r = new Random();
 
-    int pivotIndex = r.nextInt(lo, hi + 1);
+    int pivotIndex = r.nextInt(lo + 1, hi);
     int pivot = data[pivotIndex];
     swap(data, pivotIndex, lo);
 
@@ -49,10 +49,10 @@ public class Preliminary {
         if (data[right] == pivot) equalGoesLeft = !equalGoesLeft;
       }
     }
-    swap(data, lo, right);
-    System.out.println(pivot);
-    System.out.println(Arrays.toString(data));
-    return right;
+   swap(data, lo, right);
+   System.out.println("pivot: " + pivot);
+   System.out.println("data: " + Arrays.toString(data));
+  return right;
   }
 
   private static void swap(int[] data, int i, int j) {
@@ -64,8 +64,10 @@ public class Preliminary {
   public static void main (String[] args){
     int[] ary1 = new int[]{9, 8, 7, 6, 5, 4, 3, 2, 1};
     int[] ary2 = new int[]{990, 991, 992, 993, 994, 8, 7, 6, 5, 4, 3, 2, 1, 0, 995, 996, 997};
-    System.out.println(partition(ary1, 0, ary1.length - 1));
-    System.out.println(partition(ary2, 0, ary2.length - 1));
+    int[] ary3 = new int[]{4, 4, 4, 4, 4, 1, 4, 4, 4};
+    System.out.println("index: " + partition(ary1, 0, ary1.length - 1));
+    System.out.println("index: " + partition(ary2, 0, ary2.length - 1));
+    System.out.println("index: " + partition(ary3, 0, ary3.length - 1));
 
 
   }
