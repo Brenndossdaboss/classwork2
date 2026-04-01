@@ -1,7 +1,8 @@
-/*1.
-*2.
-*3.
-*4.
+/*1. The ratio of width/COLS must equal height/ROWS 
+*2. SQUARESIZE = width / COLS;
+*3. draw() runs at 60 frames per second which would make the fire spread too fast to see. 
+Calling tick() only every 10 frames slows the animation down to 6 ticks per second which makes it visible.
+*4.treeSim = new BurnTrees(COLS, ROWS, DENSITY);
 */
 
 /**IMPORTANT:
@@ -35,7 +36,7 @@ void setup() {
    *ANSWER : replace squareSize = 8; with the correct square size.
    * DO NOT just write a number, it must work when you change the size() command or the ROWS and COLS
    */
-  SQUARESIZE = 8;//COPY YOUR CHANGED LINE TO THE TOP IN ANSWER SLOT 2.
+  SQUARESIZE = width / COLS;//COPY YOUR CHANGED LINE TO THE TOP IN ANSWER SLOT 2.
 
 
 }
@@ -83,7 +84,7 @@ void mouseClicked() {
    *Please use the same values that it was initialized with in the setup.
    * ANSWER: UPDATE THE NEXT LINE THEN COPY IT TO THE TOP IN ANSWER SLOT 4.
    */
-  treeSim = null;
+  treeSim = new BurnTrees(COLS, ROWS, DENSITY);
 }
 
 
@@ -93,10 +94,22 @@ void mouseClicked() {
  *ANSWER: Complete this method. (DO NOT COPY THIS TO THE TOP!)
  */
 void drawSquares(BurnTrees treeSim) {
-  /**Complete this method.
-   *1. Break up your screen by drawing ROWSxCOLS squares of the same color.
-   *2. Decide how to fill them in using the treeSim object.
-   *   Colors: Fire = RED, Tree = GREEN, SPACE = BLACK, ASH = GREY
-   *3. You can use the array directly (treeSim.map) because it is in the same java file (sketch).
-   */
+  for (int r = 0; r < ROWS; r++) {
+    for (int c = 0; c < COLS; c++) {
+      int val = treeSim.map[r][c];
+      if(val == -2){
+        fill(0, 180, 0);
+      }          // TREE = green
+      else if (val == 10){
+        fill(255, 0, 0);
+      }     // FIRE = red
+      else if (val == 0){
+        fill(100);    
+      }// ASH = grey
+      else{
+        fill(0); 
+      }                            // SPACE = black
+      rect(c * SQUARESIZE, r * SQUARESIZE, SQUARESIZE, SQUARESIZE);
+    }
+  }
 }
