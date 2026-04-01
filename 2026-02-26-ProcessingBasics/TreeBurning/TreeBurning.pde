@@ -16,9 +16,9 @@ double DENSITY;
 int SQUARESIZE;
 
 void setup() {
-  size(600, 500);
-  ROWS = 50;
-  COLS = 60;
+  size(800, 800);
+  ROWS = 200;
+  COLS = 200;
   /**question 1 *********************************
    *At this point you have initialized width, height,ROWS,COLS. You can change these values
    *to alter the screen size, but you cannot just change one value!
@@ -26,7 +26,7 @@ void setup() {
    *ANSWER ON THE TOP IN ANSWER SLOT 1.
    */
 
-  DENSITY = .61;
+  DENSITY = .65;
   //width is cols, or x.
   treeSim = new BurnTrees(COLS, ROWS, DENSITY);
 
@@ -45,7 +45,7 @@ void setup() {
 void draw() {
   background(0);
   //frameCount tells you how many times the draw method was called.
-  if (frameCount % 10 == 0 && !treeSim.done()) {
+  if (frameCount % 1 == 0 && !treeSim.done()) {
     treeSim.tick();
     //println("Frame number: "+ frameCount);
   }
